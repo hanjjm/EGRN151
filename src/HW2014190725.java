@@ -1,26 +1,12 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Vector;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
 public class HW2014190725 extends JFrame{
@@ -135,14 +121,12 @@ public class HW2014190725 extends JFrame{
          panel2.add(scrollPane);
          panel2.setSize(600,160);
          panel2.setLocation(100, 90);
-         
          panel3.add(total);
          text3 = new JTextField(8);
          panel3.add(text3);
          panel3.setBackground(Color.WHITE);
          panel3.setSize(600, 50);
          panel3.setLocation(100, 260);
-         
          panel4.setBackground(Color.WHITE);
  
          c.add(panel1);
@@ -155,7 +139,6 @@ public class HW2014190725 extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                // TODO Auto-generated method stub
-            	
             	 String b = "";
                  int a = 0;
                  try {
@@ -179,7 +162,6 @@ public class HW2014190725 extends JFrame{
 	                }
                 
                  if(line[0].startsWith("-")) {
-                     System.out.print("ASFD");
                  }else if(line[1].startsWith("-")) {
                  model.addRow(new Object[]{"1", words1[0], words1[1], words1[2], words1[3]});
                  }else if(line[2].startsWith("-")) {
@@ -231,17 +213,12 @@ public class HW2014190725 extends JFrame{
                         	if(Integer.parseInt(text1.getText()) >= 10) text1.setText("10");
                         		m.addRow(new Object[] {m.getRowCount()+1, combo.getSelectedItem(),
                         				text1.getText(), text2.getText(), Integer.parseInt(text1.getText())*Integer.parseInt(text2.getText()) });
-                        
                         }
                      }
                      combo.setSelectedItem(null);
-                    // System.out.print(text1.getText());
                      text1.setText(null);
- 
-                    
                      temp2 = 0;
                      for(int i = 0; i < m.getRowCount(); i++) {
-                    
                     	temp2 += Integer.parseInt(String.valueOf(m.getValueAt(i,4)));
                     	text3.setText(String.valueOf(temp2));
                     	text3.disable();
@@ -250,7 +227,6 @@ public class HW2014190725 extends JFrame{
                   }
                   });
                }
-      
          });
 
          saveItem.addActionListener(new ActionListener() {
@@ -264,14 +240,6 @@ public class HW2014190725 extends JFrame{
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
 				}
-            	
-			//	try {
-				//	fw = new FileWriter(file);
-			//	} catch (IOException e3) {
-					// TODO Auto-generated catch block
-			//		e3.printStackTrace();
-			//	}
-			
             	String[] out = null;
             	String temp3 = "";
                // TODO Auto-generated method stub
@@ -283,15 +251,8 @@ public class HW2014190725 extends JFrame{
             		}
             	}
             	out = temp3.split("\n");
-            	
-            	System.out.println(table.getRowCount());
-            	//for(int i = 0; i < table.getRowCount();i++) {
-            	//	System.out.println(out[i]);
-            //	}
             	String change = "----------------------------";
-            	System.out.println(change);
             	String change2 = "합계," + temp2;
-            	System.out.println(change2);
             	for(int i = 0; i < table.getRowCount(); i++) {
             		try {
 						fw.write(out[i]+"\n");
@@ -299,7 +260,6 @@ public class HW2014190725 extends JFrame{
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-            		//System.out.println(out[0]);
             	}
             	try {
 					fw.write(change+"\n");
